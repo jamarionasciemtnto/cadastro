@@ -15,8 +15,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/produtos', 'ControladorProduto@index');
 Route::get('/categorias', 'ControladorCategoria@index');
+Route::get('/produtos', 'ControladorProduto@index');
 
-Route::get('/categorias/novo', 'ControladorCategoria@create');
+Route::get('/categorias/new', 'ControladorCategoria@create');
+Route::get('/produtos/new', 'ControladorProduto@create');
 
+Route::post('/categorias', 'ControladorCategoria@store');
+Route::get('/categorias/delete/{id}', 'ControladorCategoria@destroy');
+Route::get('/categorias/edit/{id}', 'ControladorCategoria@edit');
+Route::post('/categorias/{id}', 'ControladorCategoria@update');
